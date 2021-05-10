@@ -32,7 +32,7 @@ func ResponseClientID(next http.Handler) http.Handler {
 func AddResponseClientID(ctx context.Context, clientID string) {
 	cIDc := ResponseClientIDContextFromContext(ctx)
 	if cIDc == nil {
-		log.Ctx(ctx).Warn().Msgf("can't add client ID %s, because context is missing", clientID)
+		log.Ctx(ctx).Warn().Msgf("can't add client %s, because context is missing", clientID)
 		return
 	}
 	cIDc.AddResponseClientID(clientID)
